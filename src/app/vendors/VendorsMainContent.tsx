@@ -10,6 +10,7 @@ import {
 } from './service';
 import { Vendor } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function VendorsPage() {
   const [vendors, setVendors] = useState<Vendor[]>([]);
@@ -118,20 +119,12 @@ export default function VendorsPage() {
                 <td className="px-4 py-2">{vendor.phone}</td>
                 <td className="px-4 py-2">{vendor.address}</td>
                 <td className="px-4 py-2">{vendor.status ? 'Active' : 'Inactive'}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button
-                    onClick={() => handleEdit(vendor)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(vendor.id!)}
-                    className="px-3 py-1 bg-red-600 text-white rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(vendor)}
+    onDelete={() => handleDelete(vendor.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

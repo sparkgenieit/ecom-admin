@@ -10,6 +10,7 @@ import {
 } from './service';
 import { AssemblyType } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function AssemblyTypesPage() {
   const [items, setItems] = useState<AssemblyType[]>([]);
@@ -103,20 +104,12 @@ export default function AssemblyTypesPage() {
             {items.map(item => (
               <tr key={item.id} className="border-t">
                 <td className="px-4 py-2">{item.name}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button
-                    onClick={() => handleEdit(item)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(item.id!)}
-                    className="px-3 py-1 bg-red-600 text-white rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(type)}
+    onDelete={() => handleDelete(type.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

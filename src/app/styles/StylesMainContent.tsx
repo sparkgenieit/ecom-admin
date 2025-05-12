@@ -9,6 +9,7 @@ import {
 } from './service';
 import { Style } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function StylesPage() {
   const [items, setItems] = useState<Style[]>([]);
@@ -92,20 +93,12 @@ export default function StylesPage() {
               <tr key={st.id} className="border-t">
                 <td className="px-4 py-2">{st.name}</td>
                 <td className="px-4 py-2">{st.status ? 'Yes' : 'No'}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button
-                    onClick={() => handleEdit(st)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(st.id!)}
-                    className="px-3 py-1 bg-red-600 text-white rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(style)}
+    onDelete={() => handleDelete(style.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

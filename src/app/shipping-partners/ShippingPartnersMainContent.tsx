@@ -10,6 +10,7 @@ import {
 } from './service';
 import { ShippingPartner } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function ShippingPartnersPage() {
   const [items, setItems] = useState<ShippingPartner[]>([]);
@@ -106,20 +107,12 @@ export default function ShippingPartnersPage() {
                 <td className="px-4 py-2 break-all">{sp.api_key}</td>
                 <td className="px-4 py-2">{sp.contact_email}</td>
                 <td className="px-4 py-2">{sp.status ? 'Yes' : 'No'}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button
-                    onClick={() => handleEdit(sp)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(sp.id!)}
-                    className="px-3 py-1 bg-red-600 text-white rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(item)}
+    onDelete={() => handleDelete(item.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

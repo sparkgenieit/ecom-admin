@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { fetchBrands, addBrand, updateBrand, deleteBrand } from './service';
 import { Brand } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function BrandsPage() {
   const [brands, setBrands] = useState<Brand[]>([]);
@@ -103,20 +104,12 @@ export default function BrandsPage() {
                   <img src={brand.logo_url} alt={brand.name} className="h-8 w-auto" />
                 </td>
                 <td className="px-4 py-2">{brand.status ? 'Active' : 'Inactive'}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button
-                    onClick={() => handleEdit(brand)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(brand.id!)}
-                    className="px-3 py-1 bg-red-600 text-white rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(brand)}
+    onDelete={() => handleDelete(brand.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

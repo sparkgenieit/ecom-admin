@@ -12,6 +12,7 @@ import {
 } from './service';
 import { Category } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function CategoriesPage() {
   const [categories, setCategories] = useState<Category[]>([]);

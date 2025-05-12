@@ -10,6 +10,7 @@ import {
 } from './service';
 import { TaxRule } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function TaxRulesPage() {
   const [items, setItems] = useState<TaxRule[]>([]);
@@ -109,20 +110,12 @@ export default function TaxRulesPage() {
                 <td className="px-4 py-2">{rule.name}</td>
                 <td className="px-4 py-2">{rule.percentage}</td>
                 <td className="px-4 py-2">{rule.applicable_on}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button
-                    onClick={() => handleEdit(rule)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(rule.id!)}
-                    className="px-3 py-1 bg-red-600 text-white rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(rule)}
+    onDelete={() => handleDelete(rule.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

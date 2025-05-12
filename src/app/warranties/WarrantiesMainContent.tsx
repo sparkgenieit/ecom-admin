@@ -9,6 +9,7 @@ import {
 } from './service';
 import { Warranty } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function WarrantiesPage() {
   const [items, setItems] = useState<Warranty[]>([]);
@@ -92,20 +93,12 @@ export default function WarrantiesPage() {
               <tr key={w.id} className="border-t">
                 <td className="px-4 py-2">{w.duration_months}</td>
                 <td className="px-4 py-2">{w.description}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button
-                    onClick={() => handleEdit(w)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(w.id!)}
-                    className="px-3 py-1 bg-red-600 text-white rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(item)}
+    onDelete={() => handleDelete(item.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

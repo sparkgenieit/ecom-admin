@@ -9,6 +9,7 @@ import {
 } from './service';
 import { Location } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
 
 export default function LocationsPage() {
   const [items, setItems] = useState<Location[]>([]);
@@ -105,14 +106,12 @@ export default function LocationsPage() {
                 <td className="px-4 py-2">{loc.city}</td>
                 <td className="px-4 py-2">{loc.pincode}</td>
                 <td className="px-4 py-2">{loc.is_serviceable ? 'Yes' : 'No'}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button onClick={() => handleEdit(loc)} className="px-3 py-1 bg-yellow-500 text-white rounded">
-                    Edit
-                  </button>
-                  <button onClick={() => handleDelete(loc.id!)} className="px-3 py-1 bg-red-600 text-white rounded">
-                    Delete
-                  </button>
-                </td>
+                <td className="px-4 py-2">
+  <TableActions
+    onEdit={() => handleEdit(location)}
+    onDelete={() => handleDelete(location.id!)}
+  />
+</td>
               </tr>
             ))}
           </tbody>

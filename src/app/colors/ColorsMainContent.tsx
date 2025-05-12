@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { fetchColors, addColor, updateColor, deleteColor } from './service';
 import { Color } from './types';
 import ConfirmDeleteModal from '@/components/ConfirmDeleteModal';
+import TableActions from '@/components/TableActions';
+
 
 export default function ColorsPage() {
   const [items, setItems] = useState<Color[]>([]);
@@ -90,14 +92,12 @@ export default function ColorsPage() {
                 <td className="px-4 py-2">{color.name}</td>
                 <td className="px-4 py-2">{color.hex_code}</td>
                 <td className="px-4 py-2">{color.status ? 'Active' : 'Inactive'}</td>
-                <td className="px-4 py-2 space-x-2">
-                  <button onClick={() => handleEdit(color)} className="px-3 py-1 bg-yellow-500 text-white rounded">
-                    Edit
-                  </button>
-                  <button onClick={() => handleDelete(color.id!)} className="px-3 py-1 bg-red-600 text-white rounded">
-                    Delete
-                  </button>
-                </td>
+                  <td className="px-4 py-2">
+                    <TableActions
+                      onEdit={() => handleEdit(color)}
+                      onDelete={() => handleDelete(color.id!)}
+                    />
+                  </td>
               </tr>
             ))}
           </tbody>
