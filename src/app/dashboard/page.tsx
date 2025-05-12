@@ -1,4 +1,4 @@
-import DashboardMainContent from './DashboardMainContent.tsx';
+import DashboardMainContent from './DashboardMainContent';
 
 export default function DashboardPage() {
   return <DashboardMainContent />;
