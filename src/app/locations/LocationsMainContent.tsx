@@ -107,11 +107,11 @@ export default function LocationsPage() {
                 <td className="px-4 py-2">{loc.pincode}</td>
                 <td className="px-4 py-2">{loc.is_serviceable ? 'Yes' : 'No'}</td>
                 <td className="px-4 py-2">
-  <TableActions
-    onEdit={() => handleEdit(location)}
-    onDelete={() => handleDelete(location.id!)}
-  />
-</td>
+                <TableActions
+                  onEdit={() => handleEdit(loc)}
+                  onDelete={() => handleDelete(loc.id!)}
+                />
+              </td>
               </tr>
             ))}
           </tbody>
