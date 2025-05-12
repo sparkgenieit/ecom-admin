@@ -95,8 +95,8 @@ export default function RoomTypesPage() {
                 <td className="px-4 py-2">{item.status ? 'Active' : 'Inactive'}</td>
                 <td className="px-4 py-2">
   <TableActions
-    onEdit={() => handleEdit(type)}
-    onDelete={() => handleDelete(type.id!)}
+    onEdit={() => handleEdit(item)}
+    onDelete={() => handleDelete(item.id!)}
   />
 </td>
               </tr>

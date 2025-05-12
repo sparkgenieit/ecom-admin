@@ -89,10 +89,10 @@ export default function WarrantiesPage() {
             </tr>
           </thead>
           <tbody>
-            {items.map(w => (
-              <tr key={w.id} className="border-t">
-                <td className="px-4 py-2">{w.duration_months}</td>
-                <td className="px-4 py-2">{w.description}</td>
+            {items.map(item => (
+              <tr key={item.id} className="border-t">
+                <td className="px-4 py-2">{item.duration_months}</td>
+                <td className="px-4 py-2">{item.description}</td>
                 <td className="px-4 py-2">
   <TableActions
     onEdit={() => handleEdit(item)}

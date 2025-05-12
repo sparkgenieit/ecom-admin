@@ -90,8 +90,8 @@ export default function MaterialsPage() {
                 <td className="px-4 py-2">{item.status ? 'Active' : 'Inactive'}</td>
                 <td className="px-4 py-2">
   <TableActions
-    onEdit={() => handleEdit(material)}
-    onDelete={() => handleDelete(material.id!)}
+    onEdit={() => handleEdit(item)}
+    onDelete={() => handleDelete(item.id!)}
   />
 </td>
               </tr>

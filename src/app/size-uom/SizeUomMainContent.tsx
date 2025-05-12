@@ -107,8 +107,8 @@ export default function SizeUomPage() {
                 </td>
                 <td className="px-4 py-2">
   <TableActions
-    onEdit={() => handleEdit(item)}
-    onDelete={() => handleDelete(item.id!)}
+    onEdit={() => handleEdit(uom)}
+    onDelete={() => handleDelete(uom.id!)}
   />
 </td>
               </tr>

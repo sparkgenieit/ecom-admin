@@ -95,8 +95,8 @@ export default function StylesPage() {
                 <td className="px-4 py-2">{st.status ? 'Yes' : 'No'}</td>
                 <td className="px-4 py-2">
   <TableActions
-    onEdit={() => handleEdit(style)}
-    onDelete={() => handleDelete(style.id!)}
+    onEdit={() => handleEdit(st)}
+    onDelete={() => handleDelete(st.id!)}
   />
 </td>
               </tr>
