@@ -1,17 +1,17 @@
 import '../styles/globals.css';
-import AuthWrapper from '@/components/AuthWrapper';
 import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
+import Sidebar from '@/components/Sidebar';
+import AuthWrapper from '@/components/AuthWrapper';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className="min-h-screen flex flex-col">
         <Header />
-        <div className="flex">
+        <div className="flex flex-col md:flex-row flex-1">
           <Sidebar />
-          <main className="flex-1 p-6 bg-white">
+          <main className="flex-1 p-4">
             <AuthWrapper>{children}</AuthWrapper>
           </main>
         </div>

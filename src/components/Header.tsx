@@ -1,16 +1,10 @@
 'use client';
-
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Header() {
   const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    setIsLoggedIn(!!token);
-  }, []);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
@@ -18,13 +12,22 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-gray-800 text-white px-4 py-3 flex justify-between items-center">
+    <header className="bg-gray-800 text-white px-4 py-3 flex items-center justify-between flex-wrap">
       <h1 className="text-lg font-bold">eCom Furniture Admin</h1>
-      {isLoggedIn && (
-        <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded">
+      <button
+        className="md:hidden text-white ml-auto"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </button>
+<div className={`${menuOpen ? 'block' : 'hidden'} w-full md:flex md:items-center md:w-auto mt-2 md:mt-0`}>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 px-3 py-1 rounded block md:inline"
+        >
           Logout
         </button>
-      )}
+      </div>
     </header>
   );
 }

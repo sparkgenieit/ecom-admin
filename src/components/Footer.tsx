@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 text-center py-3 text-sm text-gray-600">
-      © 2025 eCom Furniture Admin. All rights reserved.
+    <footer className="bg-gray-200 text-center text-sm text-gray-600 p-4 mt-4 w-full">
+      © {new Date().getFullYear()} eCom Furniture Admin. All rights reserved.
     </footer>
   );
 }
